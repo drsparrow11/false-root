@@ -10,7 +10,7 @@ Static GitHub Pages site for the `FALSE.ROOT` album world. The page is framed as
 - Fake public network profile for Antares
 - Incident archive using the album images
 - YouTube playlist embed for the finished video sequence
-- Track console with the full WAV sequence
+- Track console with web-friendly MP3 audio
 - Portal copy aligned to the supplied canonical lyric arc
 
 ## Local Preview
@@ -30,6 +30,8 @@ http://127.0.0.1:4173/
 ## GitHub Pages
 
 This is a static site, so GitHub Pages can serve it directly from the repository root. Keep `index.html`, `styles/`, `scripts/`, and `assets/` at the top level.
+
+The source WAV files are intentionally ignored for GitHub. Use the MP3 files in `assets/audio/` for the public site.
 
 ## Next Content Ideas
 

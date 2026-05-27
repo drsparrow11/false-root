@@ -81,6 +81,127 @@ audio {
   mix-blend-mode: screen;
 }
 
+.boot-screen {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+  background: #030607;
+  opacity: 1;
+  visibility: visible;
+  transition:
+    opacity 520ms ease,
+    visibility 520ms ease;
+}
+
+.boot-screen.hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.boot-bg,
+.boot-shade {
+  position: absolute;
+  inset: 0;
+}
+
+.boot-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.72;
+  filter: saturate(0.82) contrast(1.18) brightness(0.62);
+}
+
+.boot-shade {
+  background:
+    radial-gradient(circle at 52% 42%, rgba(240, 51, 45, 0.2), transparent 20rem),
+    linear-gradient(90deg, rgba(3, 6, 7, 0.92), rgba(3, 6, 7, 0.38) 48%, rgba(3, 6, 7, 0.9)),
+    repeating-linear-gradient(180deg, transparent 0 6px, rgba(255, 255, 255, 0.1) 7px);
+}
+
+.boot-content {
+  position: relative;
+  z-index: 1;
+  width: min(820px, calc(100% - 2rem));
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.system-line,
+.enter-button,
+.peek-link,
+.boot-copy {
+  font-family: var(--mono);
+}
+
+.system-line {
+  margin: 0 0 1.1rem;
+  color: var(--red);
+  font-size: 0.78rem;
+  letter-spacing: 0.22em;
+}
+
+.boot-content h1 {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-family: var(--mono);
+  font-size: clamp(3.2rem, 11vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: 0.08em;
+  text-shadow:
+    0 0 12px rgba(240, 51, 45, 0.48),
+    0 0 42px rgba(0, 0, 0, 0.9);
+}
+
+.boot-copy {
+  width: min(640px, 100%);
+  margin: 1.2rem auto 1.6rem;
+  color: rgba(232, 236, 236, 0.78);
+  font-size: 0.82rem;
+  line-height: 1.8;
+  letter-spacing: 0.12em;
+}
+
+.enter-button {
+  border: 1px solid var(--line-strong);
+  background: rgba(240, 51, 45, 0.12);
+  color: var(--text);
+  padding: 0.9rem 1.35rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  box-shadow: 0 0 30px rgba(240, 51, 45, 0.18);
+}
+
+.enter-button:hover,
+.enter-button:focus-visible {
+  background: var(--red);
+  color: #050606;
+  outline: none;
+}
+
+.peek-link {
+  position: absolute;
+  right: clamp(1rem, 3vw, 2rem);
+  bottom: clamp(1rem, 3vw, 2rem);
+  z-index: 1;
+  color: rgba(232, 236, 236, 0.64);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.peek-link:hover,
+.peek-link:focus-visible {
+  color: var(--red);
+}
+
 .portal-header {
   position: sticky;
   top: 0;
@@ -120,7 +241,8 @@ audio {
 .session-chip,
 .button,
 .rail-link,
-.filter-button {
+.filter-button,
+.icon-button {
   font-family: var(--mono);
   text-transform: uppercase;
 }
@@ -283,7 +405,9 @@ p {
 .archive-card,
 .review-card,
 .video-console,
-.video-brief {
+.video-brief,
+.why-main,
+.why-quote {
   border: 1px solid var(--line);
   background: var(--panel);
   box-shadow: var(--shadow);
@@ -420,6 +544,77 @@ p {
 .section-heading p {
   max-width: 760px;
   margin-bottom: 0;
+}
+
+.why-shell {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(280px, 0.88fr);
+  gap: 1rem;
+}
+
+.why-main,
+.why-quote {
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.why-main h3 {
+  margin: 0.75rem 0 1rem;
+  font-size: clamp(1.55rem, 3vw, 2.65rem);
+  line-height: 1.08;
+}
+
+.why-points {
+  display: grid;
+  gap: 0.65rem;
+  margin-top: 1.25rem;
+}
+
+.why-points span {
+  border-left: 2px solid var(--red);
+  padding: 0.65rem 0.8rem;
+  background: rgba(240, 51, 45, 0.08);
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: 0.82rem;
+  text-transform: uppercase;
+}
+
+.why-quote {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 360px;
+  background:
+    linear-gradient(135deg, rgba(240, 51, 45, 0.12), transparent 55%),
+    url("../assets/images/truth-index.png") center / cover;
+  position: relative;
+  overflow: hidden;
+}
+
+.why-quote::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(4, 7, 8, 0.74);
+}
+
+.why-quote p,
+.why-quote cite {
+  position: relative;
+}
+
+.why-quote p {
+  color: var(--text);
+  font-size: clamp(1.7rem, 4vw, 3.2rem);
+  line-height: 1.05;
+}
+
+.why-quote cite {
+  color: var(--red);
+  font-family: var(--mono);
+  font-size: 0.75rem;
+  font-style: normal;
+  text-transform: uppercase;
 }
 
 .journal-layout {
@@ -694,6 +889,176 @@ p {
   margin-top: 0.75rem;
 }
 
+.track-console {
+  display: grid;
+  grid-template-columns: 310px minmax(0, 1fr);
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(135deg, rgba(240, 51, 45, 0.09), transparent 42%),
+    rgba(6, 9, 10, 0.78);
+  box-shadow: var(--shadow);
+}
+
+.console-track-list {
+  border-right: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.track-button {
+  display: grid;
+  grid-template-columns: 38px minmax(0, 1fr);
+  gap: 12px;
+  width: 100%;
+  min-height: 58px;
+  border: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 12px 14px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  text-align: left;
+}
+
+.track-button:hover,
+.track-button:focus-visible,
+.track-button.is-active {
+  background: var(--red-soft);
+  color: var(--text);
+}
+
+.track-button span:first-child {
+  color: var(--red);
+  font-family: var(--mono);
+  font-weight: 700;
+}
+
+.track-button strong,
+.track-button small {
+  display: block;
+}
+
+.track-button strong {
+  font: 700 0.8rem/1.25 var(--mono);
+}
+
+.track-button small {
+  margin-top: 4px;
+  color: var(--dim);
+  font: 0.68rem/1.35 var(--mono);
+  text-transform: uppercase;
+}
+
+.track-detail {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.86fr) minmax(0, 1fr);
+  min-height: 720px;
+}
+
+.detail-media {
+  position: relative;
+  min-height: 420px;
+  background: #030508;
+}
+
+.detail-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.track-status {
+  position: absolute;
+  left: 16px;
+  right: 16px;
+  bottom: 16px;
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  border: 1px solid var(--line-strong);
+  padding: 12px;
+  background: rgba(5, 7, 8, 0.82);
+  color: var(--text);
+  font: 0.8rem var(--mono);
+  text-transform: uppercase;
+}
+
+.detail-copy {
+  padding: clamp(1.2rem, 3vw, 1.8rem);
+}
+
+.detail-copy h3 {
+  margin-top: 0.7rem;
+  color: var(--text);
+  font-family: var(--mono);
+  font-size: clamp(1.8rem, 4vw, 3.5rem);
+  line-height: 1;
+}
+
+.track-meaning {
+  color: #d7ddde;
+  line-height: 1.65;
+}
+
+.audio-panel,
+.signal-note {
+  margin-top: 18px;
+  border: 1px solid var(--line);
+  padding: 16px;
+  background: rgba(0, 0, 0, 0.26);
+}
+
+.audio-topline {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 10px;
+  color: var(--muted);
+  font: 0.76rem var(--mono);
+  text-transform: uppercase;
+}
+
+.track-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.icon-button {
+  display: inline-flex;
+  min-height: 36px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--line);
+  padding: 0 13px;
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.icon-button:hover,
+.icon-button:focus-visible {
+  border-color: var(--line-strong);
+  background: var(--red-soft);
+}
+
+.system-log {
+  min-height: 58px;
+  margin-top: 16px;
+  border-left: 2px solid var(--red);
+  padding: 4px 0 4px 14px;
+  color: var(--red);
+  font: 0.78rem/1.55 var(--mono);
+  text-transform: uppercase;
+}
+
+.signal-note p {
+  margin: 0.65rem 0 0;
+}
+
 .album-card {
   overflow: hidden;
   align-self: start;
@@ -768,14 +1133,24 @@ audio {
   .hero-shell,
   .workspace-grid,
   .journal-layout,
+  .why-shell,
   .profile-shell,
   .media-console,
-  .video-console {
+  .video-console,
+  .track-console,
+  .track-detail {
     grid-template-columns: 1fr;
   }
 
   .side-rail {
     position: static;
+  }
+
+  .console-track-list {
+    max-height: 360px;
+    overflow: auto;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
   }
 
   .archive-grid {
@@ -818,6 +1193,23 @@ audio {
   h1 {
     font-size: 2.55rem;
     line-height: 0.98;
+  }
+
+  .boot-content h1 {
+    font-size: 3.1rem;
+    line-height: 1;
+  }
+
+  .boot-copy {
+    font-size: 0.72rem;
+    line-height: 1.65;
+  }
+
+  .peek-link {
+    right: auto;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
   }
 
   .hero-copy p {

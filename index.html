@@ -14,6 +14,21 @@
     <div class="noise" aria-hidden="true"></div>
     <div class="scanline" aria-hidden="true"></div>
 
+    <div class="boot-screen" id="bootScreen" aria-label="FALSE.ROOT entry screen">
+      <img class="boot-bg" src="assets/images/false-root-album-cover.png" alt="">
+      <div class="boot-shade"></div>
+      <div class="boot-content">
+        <p class="system-line">FALSE ROOT DETECTED</p>
+        <h1>FALSE.ROOT</h1>
+        <p class="boot-copy">
+          Antares x KLMNT. A corporate archive about corrupted labels,
+          stolen authority, and the human factor restored.
+        </p>
+        <button class="enter-button" id="enterButton" type="button">Enter Portal</button>
+      </div>
+      <a class="peek-link" href="#media">track console</a>
+    </div>
+
     <header class="portal-header">
       <a class="brand" href="#overview" aria-label="KLMNT Corp portal home">
         <span class="brand-mark">K</span>
@@ -24,6 +39,7 @@
       </a>
       <nav class="top-nav" aria-label="Primary">
         <a href="#overview">Dashboard</a>
+        <a href="#why">Why</a>
         <a href="#journal">Manager's Journal</a>
         <a href="#reviews">Reviews</a>
         <a href="#profile">Profile</a>
@@ -87,6 +103,7 @@
             <h2>FALSE.ROOT</h2>
             <p>Antares x KLMNT</p>
           </div>
+          <button class="rail-link" data-view="why">Why This Exists</button>
           <button class="rail-link is-active" data-view="journal">Manager's Journal</button>
           <button class="rail-link" data-view="reviews">Performance Reviews</button>
           <button class="rail-link" data-view="profile">Public Profile</button>
@@ -96,11 +113,50 @@
         </aside>
 
         <div class="portal-workspace">
+          <section class="portal-view" id="why" data-view-panel="why">
+            <div class="section-heading">
+              <span class="terminal-label">PROJECT NOTES // HUMAN FACTOR RESTORED</span>
+              <h2>Why This Exists</h2>
+              <p>FALSE.ROOT is not about proving the system was wrong. It is about restoring the context the system removed.</p>
+            </div>
+            <div class="why-shell">
+              <article class="why-main">
+                <span class="terminal-label">NOT BROKEN VS FIXED</span>
+                <h3>FALSE.ROOT is about what happens when the diagnosis becomes part of the damage.</h3>
+                <p>
+                  Antares begins inside a system that keeps reading his alarm as evidence against him.
+                  The more he tries to explain, the more the archive corrects him. His pain is logged,
+                  filtered, classified, and renamed until the report sounds cleaner than the truth.
+                </p>
+                <p>
+                  KLMNT is the voice of false order: calm, polished, almost merciful. He does not erase
+                  the wound. He teaches the wound what to prove. That is why the album keeps returning
+                  to labels, permissions, root access, and quarantine. The fight is not to delete the past.
+                  The fight is to stop the past from being narrated by the thing that harmed it.
+                </p>
+                <p>
+                  The restoration is not a perfect ending. Antares is still scarred, still changed, and
+                  still carrying the archive. But the human factor is back in the record. The red signal
+                  is allowed to be a heartbeat again.
+                </p>
+                <div class="why-points" aria-label="Core emotional questions">
+                  <span>What if the alarm was telling the truth?</span>
+                  <span>What if context is not an excuse, but the missing evidence?</span>
+                  <span>What if healing means containment instead of deletion?</span>
+                </div>
+              </article>
+              <blockquote class="why-quote">
+                <p>The wound can stay a wound without becoming me.</p>
+                <cite>TRUTH INDEX // restored archive note</cite>
+              </blockquote>
+            </div>
+          </section>
+
           <section class="portal-view is-active" id="journal" data-view-panel="journal">
             <div class="section-heading">
-              <span class="terminal-label">MANAGER'S JOURNAL // 3 YEAR RETENTION</span>
-              <h2>Notes Antares Kept Before The Archive Corrected Him</h2>
-              <p>Private entries recovered from local cache. Newest restored entries appear first.</p>
+              <span class="terminal-label">MANAGER'S JOURNAL // 2013-2018 CACHE</span>
+              <h2>Notes Antares Kept Through The KLMNT Override</h2>
+              <p>Private entries recovered from local cache. Pre-KLMNT baseline, KLMNT-era distortion, and mid-2018 restoration appear first.</p>
             </div>
             <div class="journal-layout">
               <div class="entry-list" id="journalList" aria-label="Journal entries"></div>
@@ -111,8 +167,8 @@
           <section class="portal-view" id="reviews" data-view-panel="reviews">
             <div class="section-heading">
               <span class="terminal-label">BIANNUAL PERFORMANCE REVIEWS</span>
-              <h2>Locked Reports Prior To KLMNT Appointment</h2>
-              <p>Earlier reviews show excellent performance. KLMNT-era reports overwrite context with diagnosis.</p>
+              <h2>2013-2021 Review Continuity</h2>
+              <p>2013-2015 records show stable performance. 2016-mid 2018 reflects KLMNT override. Post-restoration reviews slowly return to meets and exceeds.</p>
             </div>
             <div class="review-controls" role="group" aria-label="Review filters">
               <button class="filter-button is-active" data-review-filter="all">All</button>
@@ -165,19 +221,48 @@
           <section class="portal-view" id="media" data-view-panel="media">
             <div class="section-heading">
               <span class="terminal-label">TRACK CONSOLE</span>
-              <h2>FALSE.ROOT Audio Review</h2>
-              <p>Internal playback console for the complete album sequence.</p>
+              <h2>Select A Signal</h2>
+              <p>Internal playback console for the complete FALSE.ROOT sequence.</p>
             </div>
-            <div class="media-console">
-              <div class="album-card">
-                <img src="assets/images/false-root-album-cover.png" alt="FALSE.ROOT album cover.">
-                <div>
-                  <span class="terminal-label">CONCEPT ALBUM BY SPARROW x ECHO</span>
-                  <h3>FALSE.ROOT</h3>
-                  <p>Antares x KLMNT</p>
+            <div class="track-console">
+              <aside class="console-track-list" aria-label="Track list">
+                <div id="trackButtons"></div>
+              </aside>
+
+              <article class="track-detail">
+                <div class="detail-media">
+                  <img id="trackImage" src="assets/images/red-signal.png" alt="RED SIGNAL visual archive cover.">
+                  <div class="track-status">
+                    <span id="trackNumber">01</span>
+                    <span id="trackState">RED SIGNAL</span>
+                  </div>
                 </div>
-              </div>
-              <div class="track-list" id="trackList"></div>
+                <div class="detail-copy">
+                  <span class="terminal-label" id="trackSignal">SOURCE: INTERNAL</span>
+                  <h3 id="trackTitle">RED SIGNAL</h3>
+                  <p class="track-meaning" id="trackMeaning"></p>
+                  <div class="audio-panel">
+                    <div class="audio-topline">
+                      <span id="audioLabel">RED SIGNAL web master</span>
+                      <span id="albumProgress">01 / 12</span>
+                    </div>
+                    <audio id="trackAudio" controls preload="metadata">
+                      <source id="trackAudioSource" src="assets/audio/red-signal.mp3" type="audio/mpeg">
+                    </audio>
+                    <div class="track-controls">
+                      <button class="icon-button" id="previousTrack" type="button">prev</button>
+                      <button class="icon-button" id="nextTrack" type="button">next</button>
+                      <a class="icon-button" id="openTrackVideo" href="https://www.youtube.com/playlist?list=PL7NolO6GeT1AZ8b-7UHl80roXRxTScGLx" target="_blank" rel="noreferrer">YouTube</a>
+                      <button class="icon-button" id="copySignalLink" type="button">copy link</button>
+                    </div>
+                  </div>
+                  <div class="system-log" id="systemLog" aria-live="polite"></div>
+                  <div class="signal-note">
+                    <span class="terminal-label">ARCHIVE NOTE</span>
+                    <p id="signalNoteText"></p>
+                  </div>
+                </div>
+              </article>
             </div>
           </section>
 
