@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>KLMNT Corp Employee Portal | Antares A-01</title>
+    <meta
+      name="description"
+      content="KLMNT Corp internal employee portal archive for Antares A-01, restored after FALSE.ROOT containment."
+    >
+    <link rel="stylesheet" href="styles/main.css">
+  </head>
+  <body>
+    <div class="noise" aria-hidden="true"></div>
+    <div class="scanline" aria-hidden="true"></div>
+
+    <header class="portal-header">
+      <a class="brand" href="#overview" aria-label="KLMNT Corp portal home">
+        <span class="brand-mark">K</span>
+        <span>
+          <strong>KLMNT CORP.</strong>
+          <small>Employee Systems Portal</small>
+        </span>
+      </a>
+      <nav class="top-nav" aria-label="Primary">
+        <a href="#overview">Dashboard</a>
+        <a href="#journal">Manager's Journal</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#profile">Profile</a>
+        <a href="#archive">Archive</a>
+        <a href="#videos">Videos</a>
+      </nav>
+      <div class="session-chip">
+        <span class="status-dot"></span>
+        Antares A-01
+      </div>
+    </header>
+
+    <main>
+      <section class="hero-shell" id="overview">
+        <div class="hero-copy">
+          <div class="terminal-label">ACCESS: RESTORED // ROOT AUTHORITY: REVOKED</div>
+          <h1><span>Antares</span><span>Employee</span><span>Record</span></h1>
+          <p>
+            Internal portal snapshot for personnel file A-01. Human factor restored.
+            Prior labels remain visible for audit, but no longer define the source.
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#journal">Open Journal</a>
+            <a class="button ghost" href="#media">Review Tracks</a>
+          </div>
+        </div>
+
+        <aside class="identity-panel" aria-label="Antares status">
+          <img src="assets/images/antares-restored.png" alt="Antares walking out of the KLMNT office after restoration.">
+          <div class="identity-grid">
+            <span>Core Signal</span><strong>Stable</strong>
+            <span>Source Layer</span><strong>Antares</strong>
+            <span>Human Factor</span><strong>Included</strong>
+            <span>KLMNT Access</span><strong>Contained</strong>
+          </div>
+        </aside>
+      </section>
+
+      <section class="status-band" aria-label="Portal status cards">
+        <article>
+          <span class="terminal-label">TRUTH INDEX</span>
+          <strong>Rebuilding</strong>
+          <p>Context packets restored across incident records, manager notes, and performance history.</p>
+        </article>
+        <article>
+          <span class="terminal-label">FALSE ROOT</span>
+          <strong>Detected</strong>
+          <p>Prior authority signature traced to KLMNT. Label-writing permissions removed.</p>
+        </article>
+        <article>
+          <span class="terminal-label">EMPLOYEE FILE</span>
+          <strong>Unlocked</strong>
+          <p>Original review data preserved. KLMNT-era overrides retained as evidence.</p>
+        </article>
+      </section>
+
+      <section class="workspace-grid">
+        <aside class="side-rail" aria-label="Case navigation">
+          <div class="rail-card">
+            <span class="terminal-label">ACTIVE CASE</span>
+            <h2>FALSE.ROOT</h2>
+            <p>Antares x KLMNT</p>
+          </div>
+          <button class="rail-link is-active" data-view="journal">Manager's Journal</button>
+          <button class="rail-link" data-view="reviews">Performance Reviews</button>
+          <button class="rail-link" data-view="profile">Public Profile</button>
+          <button class="rail-link" data-view="archive">Incident Archive</button>
+          <button class="rail-link" data-view="videos">Video Playlist</button>
+          <button class="rail-link" data-view="media">Track Console</button>
+        </aside>
+
+        <div class="portal-workspace">
+          <section class="portal-view is-active" id="journal" data-view-panel="journal">
+            <div class="section-heading">
+              <span class="terminal-label">MANAGER'S JOURNAL // 3 YEAR RETENTION</span>
+              <h2>Notes Antares Kept Before The Archive Corrected Him</h2>
+              <p>Private entries recovered from local cache. Newest restored entries appear first.</p>
+            </div>
+            <div class="journal-layout">
+              <div class="entry-list" id="journalList" aria-label="Journal entries"></div>
+              <article class="entry-reader" id="journalReader" aria-live="polite"></article>
+            </div>
+          </section>
+
+          <section class="portal-view" id="reviews" data-view-panel="reviews">
+            <div class="section-heading">
+              <span class="terminal-label">BIANNUAL PERFORMANCE REVIEWS</span>
+              <h2>Locked Reports Prior To KLMNT Appointment</h2>
+              <p>Earlier reviews show excellent performance. KLMNT-era reports overwrite context with diagnosis.</p>
+            </div>
+            <div class="review-controls" role="group" aria-label="Review filters">
+              <button class="filter-button is-active" data-review-filter="all">All</button>
+              <button class="filter-button" data-review-filter="pre-klmnt">Pre-KLMNT</button>
+              <button class="filter-button" data-review-filter="klmnt-era">KLMNT Era</button>
+              <button class="filter-button" data-review-filter="restored">Restored</button>
+            </div>
+            <div class="review-timeline" id="reviewTimeline"></div>
+          </section>
+
+          <section class="portal-view" id="profile" data-view-panel="profile">
+            <div class="profile-shell">
+              <article class="profile-card">
+                <div class="profile-banner"></div>
+                <div class="profile-body">
+                  <img src="assets/images/red-signal.png" alt="Antares red signal employee portrait.">
+                  <div>
+                    <span class="terminal-label">PUBLIC NETWORK MIRROR</span>
+                    <h2>Antares A-01</h2>
+                    <p>Senior Systems Integrity Manager at KLMNT Corp.</p>
+                    <p class="profile-meta">Metro division // Core compliance // Human-context auditing</p>
+                  </div>
+                </div>
+              </article>
+              <aside class="profile-sidebar">
+                <h3>About</h3>
+                <p>
+                  I build systems that include the room, the pressure, the silence, the wound,
+                  and the human factor before deciding what a signal means.
+                </p>
+                <h3>Experience</h3>
+                <ul class="clean-list">
+                  <li><strong>KLMNT Corp.</strong><span>Systems Integrity Manager, 2021 - Present</span></li>
+                  <li><strong>Archive Operations</strong><span>Pattern Review Lead, 2019 - 2021</span></li>
+                  <li><strong>Independent Signal Analyst</strong><span>Human factor research, 2017 - 2019</span></li>
+                </ul>
+              </aside>
+            </div>
+          </section>
+
+          <section class="portal-view" id="archive" data-view-panel="archive">
+            <div class="section-heading">
+              <span class="terminal-label">INCIDENT ARCHIVE</span>
+              <h2>Recovered Track Evidence</h2>
+              <p>Every incident was part of the same system. Select a file to inspect its visual record.</p>
+            </div>
+            <div class="archive-grid" id="archiveGrid"></div>
+          </section>
+
+          <section class="portal-view" id="media" data-view-panel="media">
+            <div class="section-heading">
+              <span class="terminal-label">TRACK CONSOLE</span>
+              <h2>FALSE.ROOT Audio Review</h2>
+              <p>Internal playback console for the complete album sequence.</p>
+            </div>
+            <div class="media-console">
+              <div class="album-card">
+                <img src="assets/images/false-root-album-cover.png" alt="FALSE.ROOT album cover.">
+                <div>
+                  <span class="terminal-label">CONCEPT ALBUM BY SPARROW x ECHO</span>
+                  <h3>FALSE.ROOT</h3>
+                  <p>Antares x KLMNT</p>
+                </div>
+              </div>
+              <div class="track-list" id="trackList"></div>
+            </div>
+          </section>
+
+          <section class="portal-view" id="videos" data-view-panel="videos">
+            <div class="section-heading">
+              <span class="terminal-label">PUBLIC TRANSMISSION // YOUTUBE</span>
+              <h2>FALSE.ROOT Video Playlist</h2>
+              <p>External broadcast archive for the Antares x KLMNT sequence.</p>
+            </div>
+            <div class="video-console">
+              <iframe
+                title="FALSE.ROOT YouTube playlist"
+                src="https://www.youtube.com/embed/videoseries?list=PL7NolO6GeT1AZ8b-7UHl80roXRxTScGLx"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                allowfullscreen
+              ></iframe>
+              <aside class="video-brief">
+                <span class="terminal-label">BROADCAST STATUS: LIVE</span>
+                <h3>Public Access Mirror</h3>
+                <p>
+                  The internal archive remains intact here, but the restored signal now has an outbound channel.
+                </p>
+                <a
+                  class="button primary"
+                  href="https://youtube.com/playlist?list=PL7NolO6GeT1AZ8b-7UHl80roXRxTScGLx&si=q_nN3tmwAC6HDNJY"
+                  target="_blank"
+                  rel="noreferrer"
+                >Open Playlist</a>
+              </aside>
+            </div>
+          </section>
+        </div>
+      </section>
+    </main>
+
+    <footer class="portal-footer">
+      <span>KLMNT Corp. internal systems mirror</span>
+      <span>Truth is context. Context is freedom.</span>
+    </footer>
+
+    <script src="scripts/app.js"></script>
+  </body>
+</html>
