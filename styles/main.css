@@ -1008,31 +1008,18 @@ p {
   background: rgba(0, 0, 0, 0.26);
 }
 
-.lyrics-panel {
-  margin-top: 18px;
-  border: 1px solid var(--line);
-  background: rgba(0, 0, 0, 0.32);
-}
-
-.lyrics-header {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  border-bottom: 1px solid var(--line);
-  padding: 12px 14px;
-}
-
-.lyrics-panel pre {
+.lyrics {
   width: 100%;
-  max-height: 520px;
-  margin: 0;
+  max-height: 330px;
+  margin: 16px 0 0;
   overflow: auto;
-  padding: 16px;
-  color: rgba(232, 236, 236, 0.86);
-  font: 0.84rem/1.7 var(--mono);
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.28);
+  color: #f7e8cf;
+  font: 0.88rem/1.72 var(--mono);
   white-space: pre-wrap;
-  overflow-wrap: anywhere;
 }
 
 .audio-topline {

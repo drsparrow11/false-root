@@ -483,8 +483,7 @@ const copySignalLink = document.querySelector("#copySignalLink");
 const openTrackVideo = document.querySelector("#openTrackVideo");
 const systemLog = document.querySelector("#systemLog");
 const signalNoteText = document.querySelector("#signalNoteText");
-const trackLyrics = document.querySelector("#trackLyrics");
-const copyLyrics = document.querySelector("#copyLyrics");
+const lyricsText = document.querySelector("#lyricsText");
 let activeTrackIndex = 0;
 
 function trackHash(track) {
@@ -513,10 +512,9 @@ function selectTrack(index, options = {}) {
   albumProgress.textContent = `${track.number} / ${tracks.length.toString().padStart(2, "0")}`;
   systemLog.innerHTML = track.log.map((line) => `<div>&gt; ${line}</div>`).join("");
   signalNoteText.textContent = track.note;
-  trackLyrics.textContent = window.falseRootLyrics?.[track.slug] || "Lyrics transcript unavailable.";
+  lyricsText.textContent = window.falseRootLyrics?.[track.slug] || "Lyrics transcript unavailable.";
   openTrackVideo.href = `https://www.youtube.com/playlist?list=PL7NolO6GeT1AZ8b-7UHl80roXRxTScGLx&index=${Number(track.number)}`;
   copySignalLink.textContent = "copy link";
-  copyLyrics.textContent = "copy lyrics";
 
   if (options.updateHash !== false) {
     history.replaceState(null, "", `#${trackHash(track)}`);
@@ -591,19 +589,5 @@ copySignalLink.addEventListener("click", async () => {
   }
   window.setTimeout(() => {
     copySignalLink.textContent = "copy link";
-  }, 1600);
-});
-
-copyLyrics.addEventListener("click", async () => {
-  const lyrics = trackLyrics.textContent;
-  try {
-    await navigator.clipboard.writeText(lyrics);
-    copyLyrics.textContent = "copied";
-  } catch (_error) {
-    window.prompt("Copy these lyrics:", lyrics);
-    copyLyrics.textContent = "lyrics ready";
-  }
-  window.setTimeout(() => {
-    copyLyrics.textContent = "copy lyrics";
   }, 1600);
 });
