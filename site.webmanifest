@@ -1,0 +1,16 @@
+{
+  "name": "FALSE.ROOT | Antares x KLMNT",
+  "short_name": "FALSE.ROOT",
+  "description": "Chapter 3 in the SPARROW x ECHO concept album universe.",
+  "start_url": ".",
+  "display": "standalone",
+  "background_color": "#070a0b",
+  "theme_color": "#070a0b",
+  "icons": [
+    {
+      "src": "assets/images/false-root-album-cover.png",
+      "sizes": "1024x1536",
+      "type": "image/png"
+    }
+  ]
+}
