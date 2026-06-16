@@ -216,6 +216,13 @@ audio {
   backdrop-filter: blur(18px);
 }
 
+.brand-cluster {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(0.8rem, 1.8vw, 1.25rem);
+  min-width: 0;
+}
+
 .brand {
   display: inline-flex;
   align-items: center;
@@ -236,6 +243,7 @@ audio {
 
 .brand strong,
 .brand small,
+.hub-link,
 .terminal-label,
 .top-nav,
 .session-chip,
@@ -259,6 +267,34 @@ audio {
   font-size: 0.68rem;
   letter-spacing: 0.12em;
   margin-top: 0.18rem;
+}
+
+.hub-link {
+  display: inline-flex;
+  align-items: center;
+  min-height: 2.25rem;
+  border-left: 1px solid var(--line);
+  padding-left: clamp(0.8rem, 1.8vw, 1.25rem);
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  line-height: 1.35;
+  white-space: nowrap;
+}
+
+.hub-link span {
+  color: var(--text);
+  margin-left: 0.35em;
+}
+
+.hub-link:hover,
+.hub-link:focus-visible {
+  color: var(--red);
+}
+
+.hub-link:hover span,
+.hub-link:focus-visible span {
+  color: var(--red);
 }
 
 .top-nav {
@@ -1140,6 +1176,11 @@ audio {
     grid-template-columns: 1fr auto;
   }
 
+  .brand-cluster {
+    flex-wrap: wrap;
+    row-gap: 0.5rem;
+  }
+
   .top-nav {
     display: none;
   }
@@ -1180,6 +1221,19 @@ audio {
 
   .portal-header {
     padding-inline: 0.75rem;
+  }
+
+  .brand-cluster {
+    display: grid;
+    gap: 0.55rem;
+  }
+
+  .hub-link {
+    border-left: 0;
+    min-height: auto;
+    padding-left: 0;
+    font-size: 0.58rem;
+    white-space: normal;
   }
 
   .session-chip {
